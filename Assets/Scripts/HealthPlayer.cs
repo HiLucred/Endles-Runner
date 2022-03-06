@@ -17,6 +17,7 @@ public class HealthPlayer : MonoBehaviour
     {
         if (other.CompareTag("Enemy"))
         {
+            Debug.Log("Tomou Dano!");
             _healthManager.TakeDamage(damageEnemy);
         }
     }

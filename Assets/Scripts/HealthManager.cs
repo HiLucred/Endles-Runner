@@ -18,7 +18,6 @@ public class HealthManager : MonoBehaviour
         healthCurrent = _maxHealth;
     }
 
-    
     private void Update()
     {
         RestartGame();
