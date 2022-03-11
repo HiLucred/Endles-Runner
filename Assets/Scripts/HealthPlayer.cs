@@ -13,12 +13,13 @@ public class HealthPlayer : MonoBehaviour
         _healthManager = FindObjectOfType<HealthManager>();
     }
 
-    private void OnTriggerEnter2D(Collider2D other)
+    public void OnTriggerEnter2D(Collider2D other)
     {
         if (other.CompareTag("Enemy"))
         {
-            Debug.Log("Tomou Dano!");
+            //Tomou Dano!
             _healthManager.TakeDamage(damageEnemy);
+            Destroy(other.gameObject);
         }
     }
 }

@@ -11,4 +11,9 @@ public class MovementEnemy : MonoBehaviour
     {
         transform.Translate(Vector2.left * speedMovement * Time.deltaTime);
     }
+
+    public void DestroyEnemy()
+    {
+        Destroy(gameObject,2f);
+    }
 }

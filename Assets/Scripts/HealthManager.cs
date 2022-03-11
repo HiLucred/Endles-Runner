@@ -40,6 +40,7 @@ public class HealthManager : MonoBehaviour
         {
             //Game Over
             Debug.Log("Game Over");
+            healthCurrent = 0;
         }
     }
 }
