@@ -15,6 +15,8 @@ public class MovementPlayer : MonoBehaviour
     public float maxHeightMovement;
     public float minHeightMovement;
 
+    public ParticleSystem particleMovement;
+
     private void Update()
     {
         MovePlayerPosition();
@@ -29,11 +31,13 @@ public class MovementPlayer : MonoBehaviour
         {
             //Mova para cima 
             _targetPos = new Vector2(transform.position.x, transform.position.y + yincrementMovement);
+            particleMovement.Play();
         } 
         else if (Input.GetKeyDown(KeyCode.DownArrow) && transform.position.y > minHeightMovement)
         {
             //Mova para baixo 
             _targetPos = new Vector2(transform.position.x, transform.position.y - yincrementMovement);
+            particleMovement.Play();
         }
     }
     

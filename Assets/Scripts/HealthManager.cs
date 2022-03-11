@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.Serialization;
 using UnityEngine.UI;
+using UnityEngine.SceneManagement;
 
 public class HealthManager : MonoBehaviour
 {
@@ -11,6 +12,8 @@ public class HealthManager : MonoBehaviour
 
     [Header("UI")] 
     public Text healthUI;
+
+    public GameObject[] heartUI;
     
     private void Start()
     {
@@ -32,6 +35,28 @@ public class HealthManager : MonoBehaviour
     private void UpdateDamageUI()
     {
         healthUI.text = healthCurrent.ToString();
+        if (healthCurrent == 3)
+        {
+            heartUI[0].SetActive(true);
+            heartUI[1].SetActive(true);
+            heartUI[2].SetActive(true);
+        } else if (healthCurrent == 2)
+        {
+            heartUI[0].SetActive(true);
+            heartUI[1].SetActive(true);
+            heartUI[2].SetActive(false);
+        } else if (healthCurrent == 1)
+        {
+            heartUI[0].SetActive(true);
+            heartUI[1].SetActive(false);
+            heartUI[2].SetActive(false);
+        }
+        else
+        {
+            heartUI[0].SetActive(false);
+            heartUI[1].SetActive(false);
+            heartUI[2].SetActive(false);
+        }
     }
     
     private void RestartGame()
@@ -39,6 +64,7 @@ public class HealthManager : MonoBehaviour
         if (healthCurrent <= 0)
         {
             //Game Over
+            SceneManager.LoadScene("Menu");
             Debug.Log("Game Over");
             healthCurrent = 0;
         }

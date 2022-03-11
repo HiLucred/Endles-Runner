@@ -83,7 +83,6 @@ GameObject:
   - component: {fileID: 6412441306829545682}
   - component: {fileID: 6412441306829545683}
   - component: {fileID: 8688601159678633397}
-  - component: {fileID: 158568692806615698}
   - component: {fileID: 3102344479306009636}
   m_Layer: 0
   m_Name: WaterEnemy
@@ -184,19 +183,6 @@ BoxCollider2D:
   serializedVersion: 2
   m_Size: {x: 2.6727734, y: 3.0219886}
   m_EdgeRadius: 0
---- !u!114 &158568692806615698
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 6412441306829545680}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 14486e9a994aeb14d9bfe992e6a3de39, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  speedMovement: 5
 --- !u!95 &3102344479306009636
 Animator:
   serializedVersion: 3
