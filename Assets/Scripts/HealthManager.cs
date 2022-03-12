@@ -11,8 +11,7 @@ public class HealthManager : MonoBehaviour
     private int _maxHealth;
     [SerializeField] private int healthCurrent;
 
-    [Header("UI")] 
-    public Text healthUI;
+    [Header("UI")]
     public GameObject[] heartUI;
     public GameObject panelRestart;
 
@@ -20,6 +19,8 @@ public class HealthManager : MonoBehaviour
     {
         _maxHealth = 3;
         healthCurrent = _maxHealth;
+        
+        //Quando começa a Scene, o jogo volta a rodar
         Time.timeScale = 1;
     }
 
@@ -36,28 +37,31 @@ public class HealthManager : MonoBehaviour
 
     private void UpdateDamageUI()
     {
-        //healthUI.text = healthCurrent.ToString();
-        if (healthCurrent == 3)
+        //Switch para os corações da HUD desaparecerem conforme o estado da saúde
+        //Saúde = 3 || 3 corações       Saúde = 2 || 2 corações         Saúde = 1 || 1 coração      ..
+
+        switch (healthCurrent)
         {
-            heartUI[0].SetActive(true);
-            heartUI[1].SetActive(true);
-            heartUI[2].SetActive(true);
-        } else if (healthCurrent == 2)
-        {
-            heartUI[0].SetActive(true);
-            heartUI[1].SetActive(true);
-            heartUI[2].SetActive(false);
-        } else if (healthCurrent == 1)
-        {
-            heartUI[0].SetActive(true);
-            heartUI[1].SetActive(false);
-            heartUI[2].SetActive(false);
-        }
-        else
-        {
-            heartUI[0].SetActive(false);
-            heartUI[1].SetActive(false);
-            heartUI[2].SetActive(false);
+            case 3:
+                heartUI[0].SetActive(true);
+                heartUI[1].SetActive(true);
+                heartUI[2].SetActive(true);
+                break;
+            case 2:
+                heartUI[0].SetActive(true);
+                heartUI[1].SetActive(true);
+                heartUI[2].SetActive(false);
+                break;
+            case 1:
+                heartUI[0].SetActive(true);
+                heartUI[1].SetActive(false);
+                heartUI[2].SetActive(false);
+                break;
+            default:
+                heartUI[0].SetActive(false);
+                heartUI[1].SetActive(false);
+                heartUI[2].SetActive(false);
+                break;
         }
     }
     
@@ -65,10 +69,10 @@ public class HealthManager : MonoBehaviour
     {
         if (healthCurrent <= 0)
         {
-            //Game Over
+            //Abre painel de restart
             panelRestart.SetActive(true);
+            //Pausa todas as ações do jogo (movimentação, animação e etc)
             Time.timeScale = 0;
-            healthCurrent = 0;
         }
     }
 }

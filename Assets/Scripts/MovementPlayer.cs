@@ -7,11 +7,13 @@ using Vector3 = UnityEngine.Vector3;
 
 public class MovementPlayer : MonoBehaviour
 {
+    //Destino (Cima ou Baixo)
     private Vector2 _targetPos;
     
     public float yincrementMovement;
     public float speedMovement;
-
+    
+    //Limite até onde o jogador pode ir
     public float maxHeightMovement;
     public float minHeightMovement;
 
