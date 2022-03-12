@@ -14,5 +14,12 @@ public class ButtonManager : MonoBehaviour
     public void ButtonToExitTheGame()
     {
         //Fecha o jogo
+        Application.Quit();
+    }
+
+    public void ButtonToRestartTheGame()
+    {
+        //Reinicia o jogo
+        SceneManager.LoadScene("Level 01");
     }
 }

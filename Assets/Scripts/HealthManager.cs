@@ -1,3 +1,4 @@
+using System;
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
@@ -12,13 +13,14 @@ public class HealthManager : MonoBehaviour
 
     [Header("UI")] 
     public Text healthUI;
-
     public GameObject[] heartUI;
-    
+    public GameObject panelRestart;
+
     private void Start()
     {
         _maxHealth = 3;
         healthCurrent = _maxHealth;
+        Time.timeScale = 1;
     }
 
     private void Update()
@@ -34,7 +36,7 @@ public class HealthManager : MonoBehaviour
 
     private void UpdateDamageUI()
     {
-        healthUI.text = healthCurrent.ToString();
+        //healthUI.text = healthCurrent.ToString();
         if (healthCurrent == 3)
         {
             heartUI[0].SetActive(true);
@@ -64,8 +66,8 @@ public class HealthManager : MonoBehaviour
         if (healthCurrent <= 0)
         {
             //Game Over
-            SceneManager.LoadScene("Menu");
-            Debug.Log("Game Over");
+            panelRestart.SetActive(true);
+            Time.timeScale = 0;
             healthCurrent = 0;
         }
     }

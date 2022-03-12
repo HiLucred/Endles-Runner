@@ -7,14 +7,18 @@ using UnityEngine.UI;
 public class PointManager : MonoBehaviour
 {
     public Text travelledDistanceUI;
+    public Text pointsCollectdsUI;
+    public Text pointsCollectdsUIShadow;
     
     private float _travelledDistance;
     private float _distancePoints = 2f;
 
     private void Update()
     {
-        //A todo instante muda a UI
         travelledDistanceUI.text = _travelledDistance.ToString();
+        
+        pointsCollectdsUI.text = _travelledDistance.ToString();
+        pointsCollectdsUIShadow.text = _travelledDistance.ToString();
     }
 
     private void OnTriggerEnter2D(Collider2D other)
