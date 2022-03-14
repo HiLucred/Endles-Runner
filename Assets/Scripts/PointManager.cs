@@ -18,6 +18,14 @@ public class PointManager : MonoBehaviour
     private float _travelledDistance;
     //Pontos ganhos a cada marca adquirida
     private float _distancePoints = 2f;
+    //
+    private MovementPlayer _movementPlayer;
+
+    private void Awake()
+    {
+        _movementPlayer = FindObjectOfType<MovementPlayer>();
+    }
+    
 
     private void Update()
     {
@@ -30,10 +38,13 @@ public class PointManager : MonoBehaviour
     private void OnTriggerEnter2D(Collider2D other)
     {
         if (!other.CompareTag("Enemy")) return;
-        
-        //Adiciona ponto na HUD
-        _travelledDistance += _distancePoints;
-        
+
+        if (_movementPlayer.gameObject.activeSelf)
+        {
+            //Adiciona ponto na HUD
+            _travelledDistance += _distancePoints;
+        }
+
         //Depois de marcar ponto, destroi o inimigo
         Destroy(other.gameObject,1.5f);
     }

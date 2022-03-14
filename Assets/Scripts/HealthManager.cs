@@ -15,13 +15,20 @@ public class HealthManager : MonoBehaviour
     public GameObject[] heartUI;
     public GameObject panelRestart;
 
+    private MovementPlayer _movementPlayer;
+
+    private void Awake()
+    {
+        _movementPlayer = FindObjectOfType<MovementPlayer>();
+    }
+
     private void Start()
     {
         _maxHealth = 3;
         healthCurrent = _maxHealth;
         
         //Quando começa a Scene, o jogo volta a rodar
-        Time.timeScale = 1;
+        //Time.timeScale = 1;
     }
 
     private void Update()
@@ -71,8 +78,9 @@ public class HealthManager : MonoBehaviour
         {
             //Abre painel de restart
             panelRestart.SetActive(true);
+            _movementPlayer.gameObject.SetActive(false);
             //Pausa todas as ações do jogo (movimentação, animação e etc)
-            Time.timeScale = 0;
+            //Time.timeScale = 0;
         }
     }
 }

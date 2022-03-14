@@ -36,6 +36,8 @@ public class SpawnerOfEnemys : MonoBehaviour
                 movementEnemy.speedMovement += crementSpeed;    
             }
             
+            
+            
             //Adiciona uma contagem entre o tempo de spawn
             _timeBetweenSpawn = startTimeBetweenSpawn;
             
