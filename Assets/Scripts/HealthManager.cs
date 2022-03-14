@@ -16,19 +16,18 @@ public class HealthManager : MonoBehaviour
     public GameObject panelRestart;
 
     private MovementPlayer _movementPlayer;
+    private CameraShake _cameraShake;
 
     private void Awake()
     {
         _movementPlayer = FindObjectOfType<MovementPlayer>();
+        _cameraShake = FindObjectOfType<CameraShake>();
     }
 
     private void Start()
     {
         _maxHealth = 3;
         healthCurrent = _maxHealth;
-        
-        //Quando começa a Scene, o jogo volta a rodar
-        //Time.timeScale = 1;
     }
 
     private void Update()
@@ -40,6 +39,8 @@ public class HealthManager : MonoBehaviour
     public void TakeDamage(int damage)
     {
         healthCurrent -= damage;
+        //Treme a câmera ao sofrer dano
+        _cameraShake.ShakeTheCamera();
     }
 
     private void UpdateDamageUI()
@@ -79,8 +80,6 @@ public class HealthManager : MonoBehaviour
             //Abre painel de restart
             panelRestart.SetActive(true);
             _movementPlayer.gameObject.SetActive(false);
-            //Pausa todas as ações do jogo (movimentação, animação e etc)
-            //Time.timeScale = 0;
         }
     }
 }

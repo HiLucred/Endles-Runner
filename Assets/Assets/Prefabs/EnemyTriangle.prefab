@@ -10,9 +10,9 @@ GameObject:
   m_Component:
   - component: {fileID: 1394238602314477894}
   - component: {fileID: 1394238602314477895}
-  - component: {fileID: 1394238602314477888}
   - component: {fileID: 4331377267392133846}
   - component: {fileID: 7541593600261833275}
+  - component: {fileID: 1394238602314477888}
   m_Layer: 0
   m_Name: EnemyTriangle
   m_TagString: Enemy
@@ -86,19 +86,6 @@ SpriteRenderer:
   m_WasSpriteAssigned: 1
   m_MaskInteraction: 0
   m_SpriteSortPoint: 0
---- !u!114 &1394238602314477888
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1394238602314477892}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 14486e9a994aeb14d9bfe992e6a3de39, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  speedMovement: 2
 --- !u!95 &4331377267392133846
 Animator:
   serializedVersion: 3
@@ -223,6 +210,21 @@ PolygonCollider2D:
       - {x: 0.7700884, y: -0.8689493}
       - {x: 0.8129392, y: -0.85324687}
       - {x: 0.7888608, y: -0.79815817}
+--- !u!114 &1394238602314477888
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1394238602314477892}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 14486e9a994aeb14d9bfe992e6a3de39, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  speedMovement: 2
+  particleDeath: {fileID: 6625876607027017569, guid: d6fe05a687b937443a9ff81fd4b25e76, type: 3}
+  soundDamage: {fileID: 4228337242667236371, guid: a57c4f8f313cecb459a74de8b1281497, type: 3}
 --- !u!1 &1394238603087472596
 GameObject:
   m_ObjectHideFlags: 0

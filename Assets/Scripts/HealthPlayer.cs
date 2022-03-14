@@ -19,7 +19,8 @@ public class HealthPlayer : MonoBehaviour
         {
             //Tomou Dano!
             _healthManager.TakeDamage(damageEnemy);
-            Destroy(other.gameObject);
+            //Destroi o inimigo, libera partícula de sangue e som de morte
+            other.GetComponent<MovementEnemy>().DestroyEnemy();
         }
     }
 }
