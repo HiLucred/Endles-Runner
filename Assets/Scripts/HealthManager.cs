@@ -18,10 +18,13 @@ public class HealthManager : MonoBehaviour
     private MovementPlayer _movementPlayer;
     private CameraShake _cameraShake;
 
+    private GamePlaySound _gamePlaySound;
+
     private void Awake()
     {
         _movementPlayer = FindObjectOfType<MovementPlayer>();
         _cameraShake = FindObjectOfType<CameraShake>();
+        _gamePlaySound = FindObjectOfType<GamePlaySound>();
     }
 
     private void Start()
@@ -80,6 +83,7 @@ public class HealthManager : MonoBehaviour
             //Abre painel de restart
             panelRestart.SetActive(true);
             _movementPlayer.gameObject.SetActive(false);
+            _gamePlaySound.StopGameplaySound();
         }
     }
 }

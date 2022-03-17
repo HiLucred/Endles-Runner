@@ -31,7 +31,6 @@ public class MovementEnemy : MonoBehaviour
 
     private void SoundDamage()
     {
-
         Instantiate(soundDamage, transform.position, quaternion.identity);
     }
 }
